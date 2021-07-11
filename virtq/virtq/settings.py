@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'z09^@au+wan*398ge96wnzb2$4t&**2e$$qnx1(f*qp6sg-aly'
+SECRET_KEY = 'A secret key will be generated Automatically'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -38,10 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_filters',
-    # 'chat.apps.ChatConfig',
     'qapp',
     'ubs',
-    # 'storages',
 ]
 
 MIDDLEWARE = [
@@ -85,21 +83,13 @@ WSGI_APPLICATION = 'virtq.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-        # 'default': {
-        # 'ENGINE': 'django.db.backends.postgresql',
-        # 'NAME': 'virtqueueapp',
-        # 'USER': 'rahulragu',
-        # 'PASSWORD': 'rahulragudb',
-        # 'HOST': 'database-1.coreqrygzrk1.ap-south-1.rds.amazonaws.com',   # Or an IP Address that your DB is hosted on
-        # 'PORT': '5432',
-
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'virtq',
-            'USER': 'postgres',
-            'PASSWORD': 'postgres',
-            'HOST': 'database-2.coreqrygzrk1.ap-south-1.rds.amazonaws.com',  # Or an IP Address that your DB is hosted on
-            'PORT': '5432',
+            'NAME': 'db-name',
+            'USER': 'username',
+            'PASSWORD': 'pasword for db',
+            'HOST': '',  # Or an IP Address that your DB is hosted on
+            'PORT': 'port no.',
         }
 }
 
@@ -146,11 +136,11 @@ STATICFILES_DIRS =  [
     os.path.join(BASE_DIR,'static')
 ]
 
-TWILIO_ACCOUNT_SID = 'AC4dbe5b35ef79baa1733caa36fbb958d7'
-TWILIO_AUTH_TOKEN = 'e83058bffe3a9f0921ad101617e34cec'
-TWILIO_API_KEY = 'SKc1592819029f6e0641289b0555015a12'
-TWILIO_API_SECRET = 'qrXZnPzWhcbNyb2trZu1QPI5pzpOgXzC'
-TWILIO_CHAT_SERVICE_SID = 'ISc58bf5e5d5fd4adca7207e26adff8aaf'
+TWILIO_ACCOUNT_SID = ''
+TWILIO_AUTH_TOKEN = ''
+TWILIO_API_KEY = ''
+TWILIO_API_SECRET = ''
+TWILIO_CHAT_SERVICE_SID = ''
 
 MEDIA_URL = '/media/'
 MEDIA_URL_ROOT = os.path.join(BASE_DIR, 'media')
@@ -158,16 +148,16 @@ MEDIA_URL_ROOT = os.path.join(BASE_DIR, 'media')
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'stylebarber146@gmail.com'
-EMAIL_HOST_PASSWORD = 'lkdoccaoybbchdov'
+EMAIL_PORT = 
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD =''
 EMAIL_USE_TLS = True
 # EMAIL_USE_SSL = False
 
-# AWS_ACCESS_KEY_ID = 'AKIAJOWV5DMOC5HTVLMA'
-# AWS_SECRET_ACCESS_KEY = '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'
-# AWS_STORAGE_BUCKET_NAME = 'rahul-vq-bucket'
+# AWS_ACCESS_KEY_ID = ''
+# AWS_SECRET_ACCESS_KEY = ''
+# AWS_STORAGE_BUCKET_NAME = ''
 # AWS_S3_FILE_OVERWRITE = False
 # AWS_DEFAULT_ACL = None
-# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# DEFAULT_FILE_STORAGE = ''
+# STATICFILES_STORAGE = ''
