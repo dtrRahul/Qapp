@@ -3,10 +3,10 @@
 
 //action.php
 
-$connect = new PDO("pgsql:host=localhost;dbname=virtqueueapp", "rahulragu", "rahulragudb");
+$connect = new PDO();
 
-if(isset($_POST['username'])){
-   $username = $_POST['username'];
+if(isset($_POST[''])){
+   $username = $_POST[''];
 
    $query = "select count(*) as cntUser from auth_user where username='".$username."'";
 
