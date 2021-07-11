@@ -1,0 +1,158 @@
+{% load static %}
+
+<html lang="en">
+
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+     <!-- Site Metas -->
+    <title>StyleBarber</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="{% static 'images/apple-touch-icon.png' %}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- ALL VERSION CSS -->
+    <link rel="stylesheet" href="{% static 'css/versions.css' %}">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+<!--    &lt;!&ndash; Custom CSS &ndash;&gt;-->
+
+
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+
+	<link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+
+	<link rel="stylesheet" href="{% static 'css/bootstrap-select.css' %}">
+
+	<link rel="stylesheet" href="{% static 'css/animate.css' %}">
+
+	<link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+
+	<link rel="stylesheet" href="{% static 'css/loading.css' %}">
+
+	<link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+
+	<link rel="stylesheet" href="{% static 'css/prettyPhoto.css' %}">
+
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <![endif]-->
+
+
+<body class="barber_version">
+
+    <!-- LOADER -->
+    <div id="preloader">
+        <div class="cube-wrapper">
+		  <div class="cube-folding">
+			<span class="leaf1"></span>
+			<span class="leaf2"></span>
+			<span class="leaf3"></span>
+			<span class="leaf4"></span>
+		  </div>
+		</div>
+    </div><!-- end loader -->
+    <!-- END LOADER -->
+
+
+	<!-- Start header -->
+	<header class="top-navbar">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="container">
+				<a class="navbar-brand" href="/index">
+					<img src="{% static 'images/logo.png' %}" alt="" >
+				</a>
+				<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbars-rs-food" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="icon-bar top-bar"></span>
+					<span class="icon-bar middle-bar"></span>
+					<span class="icon-bar bottom-bar"></span>
+				</button>
+				<button onClick="window.location.reload()" style="border-radius: 15px;border-bottom: solid;">Refresh
+				</button>
+				<div class="collapse navbar-collapse" id="navbars-rs-food">
+					<ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<!-- End header -->
+
+
+<div class="container">
+	{% csrf_token %}
+  <table class="table" id="tablem">
+  <tr>
+    <th>Token No.</th>
+    <th>Customer Name</th>
+    <th>Mobile</th>
+<!--    <th>HairDresser</th>-->
+<!--	<th>Saloon</th>-->
+    <th></th>
+<!--    <th><a href=""><b>+</b></a></th>-->
+  </tr>
+  {% for c in cust %}
+  <tr>
+	<td id="pid" name="pid">{{c.logid_id}}</td>
+    <td>{{c.firstname}}{{c.lastname}}</td>
+	<td>{{c.mobile}}</td>
+<!--    <td>{{c.hairdresser}}</td>-->
+<!--	<td>{{c.shopdetails}}</td>-->
+
+	<td>
+		<form action="{% url 'delete_customer' c.logid_id %}" method="POST">
+		<input type="submit" style="color:red;font-size:20px;" value="Finished" id="delete" >
+		</form>
+	</td>
+  {% endfor %}>
+  </tr>
+  </table>
+
+</div>
+		<div class="copyrights">
+			<div class="container">
+				<div class="footer-distributed">
+					<div class="footer-left">
+						<p class="footer-links">
+							<a href="#">Home</a>
+							<a href="#">Blog</a>
+							<a href="#">Pricing</a>
+							<a href="#">About</a>
+							<a href="#">Faq</a>
+							<a href="#">Contact</a>
+
+						</p>
+						<p class="footer-company-name">All Rights Reserved. &copy; 2020 <a href="#">StyleBarber</a></p>
+					</div>
+				</div>
+			</div><!-- end container -->
+		</div><!-- end copyrights -->
+
+    <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+
+    <!-- ALL JS FILES -->
+    <script type="text/javascript" src="{% static 'js/all.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/responsive-tabs.js' %}"></script>
+    <!-- ALL PLUGINS -->
+    <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+
+</body>
+</html>

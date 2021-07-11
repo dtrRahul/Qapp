@@ -1,0 +1,114 @@
+
+.full{
+    background: url(uploads/bg_img1.jpg) no-repeat center;
+    background-size: cover;
+    opacity:0.8;
+    min-height: 100vh;
+    width: 100%
+    position: absolute;
+    overflow: hidden;
+
+}
+
+}
+.mfooter {
+    font-weight: 300;
+    color: white;
+    bottom: 10px;
+
+}
+.loader{
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   display: flex;
+   align-items: center;
+
+ }
+ /* Creating the dots */
+ span{
+   height: 25px;
+   width: 25px;
+   margin-right: 10px;
+   border-radius: 50%;
+   background-color: #ffff5c;
+   animation: loading 1s linear infinite;
+ }
+  span:hover{
+   height: 75px;
+   width: 70px;
+   margin-right: 10px;
+   border-radius: 100%;
+
+   animation: loading 1s linear infinite;
+     transition: 1s;
+  cursor: alias;
+ }
+ /* Creating the loading animation*/
+ @keyframes loading {
+   0%{
+    transform: translateX(0);
+   }
+   25%{
+    transform: translateX(15px);
+   }
+   50%{
+    transform: translateX(-15px);
+   }
+   100%{
+    transform: translateX(0);
+   }
+
+ }
+
+span:nth-child(1){
+  animation-delay: 0.1s;
+    background: #ffe96b;
+
+}
+span:nth-child(2){
+  animation-delay: 0.2s;
+  background: #fcc200;
+
+}
+span:nth-child(3){
+  animation-delay: 0.3s;
+      background: #fcc200;
+
+}
+span:nth-child(4){
+  animation-delay: 0.4s;
+      background: #ffdb0f;
+}
+span:nth-child(5){
+  animation-delay: 0.5s;
+      background: #ffcc33;
+}
+span:nth-child(6){
+  animation-delay: 0.6s;
+      background: #ffcc33;
+}
+span:nth-child(7){
+  animation-delay: 0.7s;
+      background: #ffcc00;
+}
+span:nth-child(8){
+  animation-delay: 0.8;
+      background: #ffcc00;
+}
+span:nth-child(9){
+  animation-delay: 0.8s;
+        background: #ffdd1f;
+}
+span:nth-child(10){
+  animation-delay: 0.9s;
+        background: #ffe138;
+}
+span:nth-child(11){
+  animation-delay: 0.99s;
+        background: #ffe138;
+}
+
+
+

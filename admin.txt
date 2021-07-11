@@ -1,0 +1,14 @@
+username: adminrahul
+password: rahul@123
+
+username: Jane
+password: jane@123
+
+username: Prathapan
+password: prtpn@123
+
+username: Renuka
+password: renu@123
+
+username: Bitsy
+password: btsy@123

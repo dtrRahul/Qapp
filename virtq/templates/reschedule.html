@@ -1,0 +1,223 @@
+{% load static %}
+
+<html lang="en">
+
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+     <!-- Site Metas -->
+    <title>StyleBarber</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="{% static 'images/apple-touch-icon.png' %}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="{% static 'css/style3.css' %}">
+
+
+    <!-- ALL VERSION CSS -->
+    <link rel="stylesheet" href="{% static 'css/versions.css' %}">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+<!--    &lt;!&ndash; Custom CSS &ndash;&gt;-->
+
+
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+
+	<link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+
+	<link rel="stylesheet" href="{% static 'css/bootstrap-select.css' %}">
+
+	<link rel="stylesheet" href="{% static 'css/animate.css' %}">
+
+	<link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+
+	<link rel="stylesheet" href="{% static 'css/loading.css' %}">
+
+	<link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+
+	<link rel="stylesheet" href="{% static 'css/prettyPhoto.css' %}">
+
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+<body class="barber_version">
+
+    <!-- LOADER -->
+    <div id="preloader">
+        <div class="cube-wrapper">
+		  <div class="cube-folding">
+			<span class="leaf1"></span>
+			<span class="leaf2"></span>
+			<span class="leaf3"></span>
+			<span class="leaf4"></span>
+		  </div>
+		</div>
+    </div><!-- end loader -->
+    <!-- END LOADER -->
+
+
+	<!-- Start header -->
+	<header class="top-navbar">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="container">
+               	<a class="navbar-brand" href="/index">
+					<img src="{% static 'images/logo.png' %}" alt="" >
+				</a>
+				<div class="collapse navbar-collapse" id="navbars-rs-food">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item active"><a class="nav-link" href="/index">Home</a></li>
+						<li class="nav-item"><a class="nav-link" href="/services">Our Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+					</ul>
+				</div>
+
+			</div>
+		</nav>
+	</header>
+	<!-- End header -->
+    <style>
+        .form-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 96%;
+            transform: translate(-90%, -50%);
+            width: 50%;
+        }
+
+        /* Add styles to the form container */
+        .form-container {
+          max-width: 300px;
+          padding: 10px;
+          background-color: white;
+        }
+
+        /* Full-width input fields */
+        .form-container input[type=text], .form-container input[type=password] {
+          width: 100%;
+          padding: 15px;
+          margin: 5px 0 22px 0;
+          border: none;
+          background: #f1f1f1;
+        }
+
+        /* When the inputs get focus, do something */
+        .form-container input[type=text]:focus, .form-container input[type=password]:focus {
+          background-color: #ddd;
+          outline: none;
+        }
+
+        /* Set a style for the submit/login button */
+        .form-container .btn {
+          background-color: #4CAF50;
+          color: white;
+          padding: 16px 20px;
+          border: none;
+          cursor: pointer;
+          width: 100%;
+          margin-bottom:10px;
+          opacity: 0.8;
+        }
+
+        /* Add a red background color to the cancel button */
+        .form-container .cancel {
+          background-color: red;
+        }
+
+        /* Add some hover effects to buttons */
+        .form-container .btn:hover, .open-button:hover {
+          opacity: 1;
+        }
+     </style>
+	<div class="wtspmsg">
+					<div class="slider-01">
+
+					</div>
+					<div class="slider-02">
+                        <input type="submit" class="btn btn-info" value="Reschedule" onclick="openForm()">
+					</div>
+
+	</div>
+
+    <div class="form-popup" id="myForm">
+        <form action="/rescheduled/{{customer.logid_id}}" class="form-container" method="POST">
+            {% csrf_token %}
+                                <input type="hidden" name="id" value="{{customer.logid_id}}">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+										<input type="date"  class="form-controll" placeholder="Enter the date" name="date" required>
+									</div>
+										  <select name="times" class="form-control">
+										  <option value=0>Select your Preferred time:</option>
+										  {% for times in time %}
+										  <option value="{{times.time}}" >{{times.time}}</option>
+										  {% endfor %}
+										  </select>
+										  <br>
+                                    <div>
+                                      <input type="submit" class="btn btn-success" value="Reschedule" >
+                                    </div>
+                                    <div>
+                                      <input type="button" class="btn cancel" value="Cancel" onclick="closeForm()">
+                                    </div>
+
+        </form>
+    </div>
+
+</div>
+
+
+<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
+
+		<br><br>
+		<div class="copyrights">
+			<div class="container">
+				<div class="footer-distributed">
+					<div class="footer-left">
+						<p class="footer-links">
+							<a href="#">Home</a>
+							<a href="#">Blog</a>
+							<a href="#">Pricing</a>
+							<a href="#">About</a>
+							<a href="#">Faq</a>
+							<a href="#">Contact</a>
+						</p>
+						<p class="footer-company-name">All Rights Reserved. &copy; 2020 <a href="#">StyleBarber</a></p>
+					</div>
+				</div>
+			</div><!-- end container -->
+		</div><!-- end copyrights -->
+	</div>
+
+    <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+
+    <!-- ALL JS FILES -->
+    <script type="text/javascript" src="{% static 'js/all.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/responsive-tabs.js' %}"></script>
+    <!-- ALL PLUGINS -->
+    <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+</body>
+</html>
